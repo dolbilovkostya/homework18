@@ -3,17 +3,17 @@ from setup_db import db
 
 
 class Movie(db.Model):
-    __tablename__ = 'movie'
+    __tablename__ = 'Movie'
 
-    id = db.Column(db.Integer, primaty_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(200))
-    description = db.Column(db.Column(200))
+    description = db.Column(db.String(200))
     trailer = db.Column(db.String(200))
     year = db.Column(db.Integer)
     rating = db.Column(db.Float)
-    genre_id = db.Column(db.Integer, db.ForeignKey('genre.id'))
+    genre_id = db.Column(db.Integer, db.ForeignKey('Genre.id'))
     genre = db.relationship('Genre')
-    director_id = db.Column(db.Integer, db.ForeignKey('director.id'))
+    director_id = db.Column(db.Integer, db.ForeignKey('Director.id'))
     director = db.relationship('Director')
 
 

@@ -6,7 +6,7 @@ genre_ns = Namespace('genres')
 
 
 @genre_ns.route('/')
-class DirectorsView(Resource):
+class GenresView(Resource):
 
     def get(self):
         genres = genre_service.get_all()
@@ -14,7 +14,7 @@ class DirectorsView(Resource):
 
 
 @genre_ns.route('/<int:gid>')
-class DirectorView(Resource):
+class GenreView(Resource):
 
     def get_one(self, gid: int):
         genre = genre_service.get_one(gid)

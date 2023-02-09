@@ -27,10 +27,10 @@ def register_extensions(app):
         db.create_all()
 
 
-APP = create_app(Config())
+app = create_app(Config())
 
 if __name__ == '__main__':
-    APP.run(debug=True)
+    app.run(debug=True)
 
 
 

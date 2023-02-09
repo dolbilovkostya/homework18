@@ -28,11 +28,11 @@ class MoviesView(Resource):
     def post(self):
         data = request.json
         new_movie = movie_service.add_movie(data)
-        return '', 201, {'location': f'/movie/{new_movie}'}
+        return '', 201, {'location': f'/movies/{new_movie}'}
 
 
 @movie_ns.route('/<int:mid>')
-class MoveView(Resource):
+class MovieView(Resource):
 
     def get(self, mid: int):
         movie = movie_service.get_one(mid)
@@ -43,8 +43,8 @@ class MoveView(Resource):
         data['id'] = mid
         movie_service.update(data)
 
-        return 'Movie updated', 204
+        return 'Movie updated', 201
 
     def delete(self, mid: int):
         movie_service.delete_movie(mid)
-        return 'Movie deleted', 204
+        return 'Movie deleted', 202
