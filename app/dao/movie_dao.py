@@ -1,4 +1,5 @@
 from .model.movie import Movie
+from flask import jsonify
 
 
 class MovieDao:

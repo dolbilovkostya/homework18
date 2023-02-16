@@ -10,17 +10,13 @@ movie_ns = Namespace('movies')
 class MoviesView(Resource):
 
     def get(self):
-        director = request.args.get('director_id')
-        genre = request.args.get('genre_id')
-        year = request.args.get('year')
-
         data = {
             'director_id': request.args.get('director_id'),
             'genre_id': request.args.get('genre_id'),
             'year': request.args.get('year')
         }
 
-        all_movies = movie_service.filter(data)
+        all_movies = movie_service.filters(data)
 
         return movies_schema.dump(all_movies)
 

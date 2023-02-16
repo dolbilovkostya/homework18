@@ -3,13 +3,13 @@ from setup_db import db
 
 
 class Director(db.Model):
-    __tablename__ = 'Director'
+    __tablename__ = 'director'
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250))
 
 
 class DirectorSchema(Schema):
-    id = fields.Integer()
+    id = fields.Integer(dump_only=True)
     name = fields.String()
 
